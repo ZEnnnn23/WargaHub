@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* Light Mode Theme Variables (Default) */
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --border-color: #cbd5e1;
+  --text-main: #0f172a;       /* Deep Slate Black for Headings */
+  --text-muted: #1e293b;      /* Dark Charcoal for Content & Descriptions */
+  --text-subtle: #334155;     /* Dark Slate Gray for Metadata */
+  --primary-emerald: #064e3b;
+  --primary-fresh: #16a34a;
+  --panel-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+/* Dark Mode Theme Variables */
+.dark {
+  --bg-main: #061a14;
+  --bg-card: #0f172a;
+  --bg-card-hover: #1e293b;
+  --border-color: #1e293b;
+  --text-main: #ffffff;       /* Pure White for Headings in Dark Mode */
+  --text-muted: #e2e8f0;      /* Off-White for Content in Dark Mode */
+  --text-subtle: #cbd5e1;     /* Light Gray for Metadata in Dark Mode */
+  --primary-emerald: #10b981;
+  --primary-fresh: #22c55e;
+  --panel-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Default Typography Contrast Fallback */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-main);
+  }
+
+  p, li, label, td, th {
+    color: var(--text-muted);
+  }
+}
+
+/* Global Container Styling */
+.bg-app-main {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+.card-village {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  box-shadow: var(--panel-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-village:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.12);
+}
+
+.dark .card-village:hover {
+  box-shadow: 0 12px 20px -5px rgba(16, 185, 129, 0.2);
+}
+
+/* Glassmorphism Header */
+.glass-header {
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.dark .glass-header {
+  background: rgba(6, 26, 20, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Lansia Mode Accessibility Override */
+.lansia-mode {
+  font-size: 118% !important;
+}
+
+.lansia-mode button,
+.lansia-mode input,
+.lansia-mode select,
+.lansia-mode textarea {
+  font-size: 1.15rem !important;
+  padding-top: 0.8rem !important;
+  padding-bottom: 0.8rem !important;
+  border-width: 2px !important;
+}
+
+/* Keyframe Animations */
+@keyframes progressBar {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.animate-progress-bar {
+  animation: progressBar 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
