@@ -1,4 +1,4 @@
-# WargaHub v2.0
+# WargaHub
 
 **Sistem Informasi & Layanan Administrasi Komunitas Terintegrasi WA dan AI**
 
